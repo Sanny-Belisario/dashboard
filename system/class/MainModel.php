@@ -61,4 +61,36 @@ class MainModel
 		// Retorna a nova data
 		return $nova_data;
 	} // inverte_data
+
+	public function dashboard() {
+        $sql='SELECT DISTINCT m.date as dateInput, (SELECT SUM(value) FROM moviment WHERE date = m.date and type = "input") AS valorInput FROM moviment m WHERE type = "input";';
+        $result=$this->db->query($sql, null);
+        while($input=$result->fetch(PDO::FETCH_ASSOC)){
+			$array[] = $input;
+		};
+        $sql = 'SELECT DISTINCT m.date as dateOutput, (SELECT SUM(value) FROM moviment WHERE date = m.date and type = "output") AS valorOutput FROM moviment m WHERE type = "output";';
+        $result=$this->db->query($sql, null);
+        while($output=$result->fetch(PDO::FETCH_ASSOC)){
+			$array[] = $output;
+		};
+        return $array;
+    }
+
+	// public function input() {
+    //     $sql='SELECT DISTINCT m.date, (SELECT SUM(value) FROM moviment WHERE date = m.date) AS valorInput FROM moviment m WHERE type = "input";';
+    //     $result=$this->db->query($sql, null);
+    //     while($input=$result->fetch(PDO::FETCH_ASSOC)){
+	// 		$array[]=$input;
+	// 	}
+    //     return $array;
+    // }
+
+    // public function output() {
+    //     $sql = 'SELECT DISTINCT m.date, (SELECT SUM(value) FROM moviment WHERE date = m.date) AS valorOutput FROM moviment m WHERE type = "output";';
+    //     $result=$this->db->query($sql, null);
+    //     while($output[]=$result->fetch(PDO::FETCH_ASSOC)){
+	// 		$array[]=$output;
+	// 	}
+    //     return $array;
+    // }
 } // MainModel

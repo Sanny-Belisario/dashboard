@@ -51,16 +51,7 @@ class MovimentsModel extends MainModel{
         return $this->db->delete("moviment","id_moviment",$id);
     }
 
-    public function dashboard() {
-        $sql='SELECT DISTINCT m.date, (SELECT SUM(value) FROM moviment WHERE date = m.date) AS valor FROM moviment m WHERE type = "input";';
-        $result=$this->db->query($sql, null);
-        $input=$result->fetch(PDO::FETCH_ASSOC);
-        $sql = 'SELECT DISTINCT m.date, (SELECT SUM(value) FROM moviment WHERE date = m.date) AS valor FROM moviment m WHERE type = "input";';
-        $result=$this->db->query($sql, null);
-        $output=$result->fetch(PDO::FETCH_ASSOC);
-        $array[] = $input;
-        $array[] = $output;
-        return $array[];
-    }
+    
 
+    
 }

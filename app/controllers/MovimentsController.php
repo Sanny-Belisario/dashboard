@@ -72,8 +72,5 @@ class MovimentsController extends MainController
 		require PATH . '/views/includes/footer.php';
 	}
 
-	public function buscaSaldo(){
-		$dado=$this->load_model("moviments")->dashboard();
-		echo json_encode($dado);
-	}
+	
 }

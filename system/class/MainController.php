@@ -154,4 +154,20 @@ class MainController
 		}
 	}
 
+	public function buscaSaldo(){
+		$dado[]=$this->load_model("moviments")->dashboard();
+		var_dump($dado);
+		return $dado;
+	}
+
+	// public function buscaInput(){
+	// 	$dado[]=$this->load_model("moviments")->input();
+	// 	//var_dump($dado);
+	// 	return $dado;
+	// }
+	// public function buscaOutput(){
+	// 	$dado[]=$this->load_model("moviments")->output();
+	// 	//var_dump($dado);
+	// 	return $dado;
+	// }
 } // class MainController
