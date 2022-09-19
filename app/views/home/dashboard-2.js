@@ -33,9 +33,8 @@ function drawChart() {
     data.addRows(grafico);
 
     var options = {
-        title: 'The decline of \'The 39 Steps\'',
-        vAxis: { title: 'Accumulated Rating' },
-        isStacked: true
+        title: 'Entradas e Saídas em Agosto',
+        isStacked: false
     };
 
     var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));

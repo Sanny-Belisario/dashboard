@@ -33,7 +33,7 @@ function drawChart() {
     data.addRows(grafico);
 
     var options = {
-        title: "Density of Precious Metals, in g/cm^3",
+        title: "Entradas e Saídas em Agosto",
         width: 600,
         height: 400,
         bar: { groupWidth: "95%" },
